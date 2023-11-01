@@ -44,7 +44,10 @@ export const SeriesProvider = ({ children }) => {
       dispatch({ type: "FETCH_INIT" });
       try {
         const result = await axios.get("http://api.tvmaze.com/shows");
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+
+        const slicedArray = result.data.slice(0, 19);
+
+        dispatch({ type: "FETCH_SUCCESS", payload: slicedArray });
       } catch (error) {
         console.error("Erro ao tentar pegar ps dados da API de séries", error);
         dispatch({ type: "FETCH_ERROR" });
