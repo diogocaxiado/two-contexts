@@ -43,7 +43,7 @@ export const SeriesProvider = ({ children }) => {
     const fetchSeries = async () => {
       dispatch({ type: "FETCH_INIT" });
       try {
-        const result = await axios.get("http://api.tvmaze.com/shows");
+        const result = await axios.get("https://api.tvmaze.com/shows");
 
         const slicedArray = result.data.slice(0, 19);
 
